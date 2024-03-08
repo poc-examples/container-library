@@ -1,0 +1,10 @@
+transformers
+accelerate
+bitsandbytes
+fastapi 
+uvicorn
+pydantic
+huggingface_hub
+huggingface-cli
+auto-gptq
+optimum

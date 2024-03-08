@@ -1,0 +1,7 @@
+fastapi 
+uvicorn
+pydantic
+weaviate_client==3.19.2
+requests
+langchain
+pymysql
