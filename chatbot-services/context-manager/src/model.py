@@ -265,7 +265,7 @@ async def index_text(request: TextRequest):
     #                 "message": "Failed to index document in Weaviate", "error": str(e)
     #             }
             # )
-        
+
     return {"generated_text": f"<br>{json.dumps(sprs)}"}
         
 
