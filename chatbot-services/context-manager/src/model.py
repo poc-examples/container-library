@@ -267,8 +267,6 @@ async def index_text(request: TextRequest):
             # )
 
     return {"generated_text": f"<br>{json.dumps(sprs)}"}
-        
-
 
 @app.post("/v2/rag-text")
 async def generate_text(request: TextRequest):
