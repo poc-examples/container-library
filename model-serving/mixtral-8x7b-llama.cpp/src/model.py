@@ -12,9 +12,9 @@ logger = logging.getLogger(__name__)
 class TextRequest(BaseModel):
     input_text: str
 
-model_path = "TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF"
-filename = "mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
-quantization = "models--TheBloke--Mixtral-8x7B-Instruct-v0.1-GGUF/snapshots/fa1d3835c5d45a3a74c0b68805fcdc133dba2b6a/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
+model_path = "TheBloke/Mistral-7B-Instruct-v0.2-GGUF"
+filename = "mistral-7b-instruct-v0.2.Q4_K_M.gguf"
+quantization = "models--TheBloke--Mistral-7B-Instruct-v0.2-GGUF/snapshots/1273fa131edbeb8a91006af324d8772dd0810cf0/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
 save_directory = "/ai-models/mistralai"
 
 logger.info(f"Model Path: {model_path}")
