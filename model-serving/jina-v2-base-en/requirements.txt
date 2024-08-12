@@ -5,6 +5,6 @@ fastapi
 uvicorn
 pydantic
 huggingface_hub
-huggingface-cli
+huggingface_hub[cli]
 auto-gptq
 optimum

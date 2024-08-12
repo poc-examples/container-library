@@ -1,3 +1,4 @@
+import multiprocessing
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from llama_cpp import Llama
@@ -14,7 +15,7 @@ class TextRequest(BaseModel):
 
 model_path = "TheBloke/Mistral-7B-Instruct-v0.2-GGUF"
 filename = "mistral-7b-instruct-v0.2.Q4_K_M.gguf"
-quantization = "models--TheBloke--Mistral-7B-Instruct-v0.2-GGUF/snapshots/1273fa131edbeb8a91006af324d8772dd0810cf0/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
+quantization = "models--TheBloke--Mistral-7B-Instruct-v0.2-GGUF/snapshots/3a6fbf4a41a1d52e415a4958cde6856d34b2db93/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
 save_directory = "/ai-models/mistralai"
 
 logger.info(f"Model Path: {model_path}")
@@ -34,7 +35,7 @@ hf_hub_download(
     cache_dir=save_directory
 )
 
-logger.info(f"{subprocess.check_output(['ls', '-la', f'{save_directory}/{quantization}' ], text=True)}\n")
+logger.info(f"{subprocess.check_output(['ls', '-la', f'{save_directory}/models--TheBloke--Mistral-7B-Instruct-v0.2-GGUF/snapshots' ], text=True)}\n")
 
 logger.info("Starting Model...")
 try:

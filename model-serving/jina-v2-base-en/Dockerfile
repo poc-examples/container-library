@@ -4,7 +4,7 @@ FROM docker.io/pytorch/pytorch:2.1.2-cuda12.1-cudnn8-devel
 WORKDIR /app
 
 # Install Python and Pip (if not already included in the base image)
-RUN mkdir /ai-models \
+RUN mkdir /ai-models /.cache \
     && apt-get update \
     && apt-get install -y \
         python3 \
@@ -15,10 +15,14 @@ RUN python3 -m pip install -r /tmp/requirements.txt
 
 # Install Hugging Face Transformers
 COPY start.sh /app/
-RUN chmod +x start.sh
+RUN  chmod +x start.sh && \
+        chgrp -R 0 /.cache && \
+        chmod -R g+rwX /.cache
 
 # Copy your script into the container
 COPY src/ /app/
+
+USER 1001
 
 # Expose any ports your application might need (optional, depends on your application)
 # For example, if your app has a web interface on port 8080:

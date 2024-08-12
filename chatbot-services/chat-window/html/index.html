@@ -65,15 +65,15 @@
                 inputBox.value = ''; // Clear the input box
 
                 const currentUrl = new URL(window.location.href);
-                const domain = currentUrl.hostname.substring("chat.".length);
+                const domain = currentUrl.hostname.substring("chat-chat.".length);
 
 
-                let fetchDomain = 'context.' + domain;
+                let fetchDomain = 'mixtral-mixtral.' + domain;
 
                 if (actionType === 'indexContent') {
                     fetchUrl = `http://${fetchDomain}/document/index`; // New URL for document upload
                 } else {
-                    fetchUrl = `http://${fetchDomain}/v2/rag-text`; // Default URL
+                    fetchUrl = `http://${fetchDomain}/generate-text`; // Default URL
                 }
 
 

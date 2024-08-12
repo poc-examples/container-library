@@ -2,4 +2,7 @@ fastapi
 uvicorn
 pydantic
 huggingface_hub
-huggingface-cli
+numpy
+typing-extensions
+diskcache
+jinja2
