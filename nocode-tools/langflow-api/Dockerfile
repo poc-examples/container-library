@@ -4,24 +4,22 @@ LABEL   maintainer="cengleby86@gmail.com" \
         org.opencontainers.image.source="https://github.com/poc-examples/core-containers/tree/main" \
         org.opencontainers.image.description="Container for Rapid Prototyping LangFlow Apps"
 
-RUN apt-get update \
-        && apt-get install -y \
-            gcc \
-            g++ \
-            git \
-            make
-
 ENV HOME=/langflow \
     PATH=/langflow/.local/bin:$PATH \
     LANGFLOW_CONFIG_DIR=/langflow/.cache/langflow \
     LANGFLOW_SAVE_DB_IN_CONFIG_DIR=true \
-    DATABASE_PATH=/langflow/.cache/langflow/langflow.db
+    LANGFLOW_COMPONENTS_PATH=$LANGFLOW_CONFIG_DIR/components \
+    LANGFLOW_LANGCHAIN_CACHE=InMemoryCache
 
 WORKDIR $HOME
 
 COPY requirements.txt /tmp/requirements.txt
 
 RUN python3 -m pip install -r /tmp/requirements.txt --user
+
+COPY load.py /tmp/load.py
+COPY flows/ $LANGFLOW_CONFIG_DIR/flows/
+COPY components/ $LANGFLOW_CONFIG_DIR/components/
 
 COPY start.sh /langflow/
 
