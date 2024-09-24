@@ -5,7 +5,7 @@ import os
 app = FastAPI()
 
 @app.post("/fetch")
-async def fetch(request):
+async def fetch(request: dict):
     # Check Payloads
     print(request["request"])
 
