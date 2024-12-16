@@ -9,6 +9,7 @@ RUN apt-get update && \
     j2cli \
     curl \
     unzip \
+    sshpass \
     libcrack2 \
     make \
     build-essential && \
