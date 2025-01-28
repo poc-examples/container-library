@@ -9,6 +9,7 @@ app = Flask(__name__)
 def forward_request():
 
     raw_body = request.data
+    print(request.json, flush=True)
     payload = json.loads(raw_body)
 
     x_github_event = request.headers.get("X-GitHub-Event", "not provided")
@@ -20,6 +21,7 @@ def forward_request():
     client_secret = os.getenv("CLIENT_SECRET")
 
     try:
+        print(auth_url,flush=True)
         response = requests.post(
             auth_url,
             headers={
@@ -49,9 +51,10 @@ def forward_request():
                 },
                 data=payload,
             )
+            print("Successfully Authenticated", flush=True)
             return jsonify({
                 "status": 200,
-                "message": "invalid event body format: unexpected end of JSON input"
+                "message": "Successfully Activated"
             })
         except:
             return jsonify({
