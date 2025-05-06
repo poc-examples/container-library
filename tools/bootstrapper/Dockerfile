@@ -12,6 +12,7 @@ RUN apt-get update && \
     sshpass \
     libcrack2 \
     make \
+    azure-cli \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
